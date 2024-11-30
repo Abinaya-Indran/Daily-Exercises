@@ -9,6 +9,7 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 
+
 // GET: Fetch all cakes
 app.get("/cakes", (req, res) => {
   res.json(cakes);
@@ -25,6 +26,7 @@ app.get("/cakes/:id", (req, res) => {
 
   res.json(cake);
 });
+
 
 // POST: Add a new cake
 app.post("/cakes", (req, res) => {
@@ -46,6 +48,7 @@ app.post("/cakes", (req, res) => {
   res.status(201).json({ message: "Cake added successfully", cake: newCake });
 });
 
+
 // PUT: Update a cake by ID
 app.put("/cakes/:id", (req, res) => {
   const id = parseInt(req.params.id);
@@ -65,6 +68,7 @@ app.put("/cakes/:id", (req, res) => {
 
   res.json({ message: "Cake updated successfully", cake });
 });
+
 
 // PATCH: Partially update a cake
 app.patch("/cakes/:id", (req, res) => {
@@ -97,6 +101,7 @@ app.delete("/cakes/:id", (req, res) => {
   cakes.splice(index, 1); // Remove the cake
   res.json({ message: "Cake deleted successfully" });
 });
+
 
 // Start the server
 app.listen(PORT, () => {
